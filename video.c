@@ -12,17 +12,17 @@ float video(int w, int h, int durationMovie, int durationCredits, int fps, char*
    // YOUR CODE HERE - BEGIN
   float value = 0 ;
    if (strcmp(unit,"bt")==0){
-      value = (float)((w*h*3*8*fps*durationMovie)+(w*h*durationCredits*8)) ;
+      value = (float)((w*h*3*fps*durationMovie)+(w*h*durationCredits*fps)) ;
 
    }
    else if (strcmp(unit,"ko")==0){
-      value = (float)((w*h*3*8*fps*durationMovie)+(w*h*durationCredits*8))/(1024) ;
+      value = (float)((w*h*3*fps*durationMovie)+(w*h*durationCredits*fps))/(1024) ;
    }
    else if (strcmp(unit,"mo")==0){
-      value =(float)((w*h*3*8*fps*durationMovie)+(w*h*durationCredits*8))/(1024*1024) ;
+      value =(float)((w*h*3*fps*durationMovie)+(w*h*durationCredits*fps))/(1024*1024) ;
    }
    else if (strcmp(unit,"go")==0){
-      value = (float)((w*h*3*8*fps*durationMovie)+(w*h*durationCredits*8))/(1024*1024*1024) ;
+      value = (float)((w*h*3*fps*durationMovie)+(w*h*durationCredits*fps))/(1024*1024*1024) ;
    }
    else {
       return 0 ;
