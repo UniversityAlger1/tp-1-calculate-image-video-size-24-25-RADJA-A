@@ -10,9 +10,9 @@
 //   colored video size (based on the unit passed parametter)
 float video(int w, int h, int durationMovie, int durationCredits, int fps, char* unit) {
    // YOUR CODE HERE - BEGIN
-    long long movie = (long long)w * h * 3 * fps * durationMovie;
-    long long credits = (long long)w * h * fps * durationCredits;
-    long long size = movie + credits;
+  float movie = (float)(w * h * 3 * 8 *(fps * durationMovie))/8;
+   float credits = (float)(w * h *8 * ( fps * durationCredits))/8;
+    float size = movie + credits;
     float value = 0;
    if (strcmp(unit,"bt")==0){
       value = (float)size;
@@ -29,6 +29,7 @@ float video(int w, int h, int durationMovie, int durationCredits, int fps, char*
    else {
       return 0 ;
    }
+
    // YOUR CODE HERE - END
    return value;
 }
