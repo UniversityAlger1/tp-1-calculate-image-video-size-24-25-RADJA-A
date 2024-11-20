@@ -10,25 +10,22 @@
 //   colored video size (based on the unit passed parametter)
 float video(int w, int h, int durationMovie, int durationCredits, int fps, char* unit) {
    // YOUR CODE HERE - BEGIN
-    long long movie = ((long long) w * h * 24 *(fps * durationMovie));
-    long long credits = ((long long)w * h  *8 * ( fps * durationCredits));
-    float size =( movie + credits)/8;
-    float value = 0;
-   if (strcmp(unit,"bt")==0){
-      value = (float)size;
-   }
-   else if (strcmp(unit,"ko")==0){
-      value =(float) (size) /(1024) ;
-   }
-   else if (strcmp(unit,"mo")==0){
-      value = (float)(size)/(1024*1024) ;
-   }
-   else if (strcmp(unit,"go")==0){
-      value = (float)(size)/(1024*1024*1024) ;
-   }
-   else { 
-      return -1 ;
-   }
-   // YOUR CODE HERE - END
-   return value;
+     float bitsPerPixel = 24
+    float clrImage = w * h * bitsPerPixel * durationMovie * fps;
+    float BImage = w * h * durationCredits * fps;
+    float sizeInBits = clrImage + BImage; // Add to total size in bits
+    float size;
+    // Convert size based on the requested unit
+    if (strcmp(unit, "bt") == 0) {
+        size = sizeInBits; // Convert to bytes
+    } else if (strcmp(unit, "ko") == 0) {
+        size = sizeInBits / (1024); // Convert to kilobits
+    } else if (strcmp(unit, "mo") == 0) {
+        size = sizeInBits / (1024 * 1024); // Convert to megabits
+    } else if (strcmp(unit, "go") == 0) {
+        size = sizeInBits / (1024 * 1024 * 1024); // Convert to gigabits
+    } else {
+        return -1.0f;
+    }
+    return size / 8;
 }
