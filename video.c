@@ -14,19 +14,19 @@ float video(int w, int h, int durationMovie, int durationCredits, int fps, char*
 
     float clrImage = w * h * bitsPerPixel * durationMovie * fps;
     float BImage = w * h * durationCredits * fps;
-    float sizeInBits = clrImage + BImage; // Add to total size in bits
+    float sizeInBits = clrImage + BImage; 
     float size;
-    // Convert size based on the requested unit
+ 
     if (strcmp(unit, "bt") == 0) {
-        size = sizeInBits; // Convert to bytes
+        size = sizeInBits; 
     } else if (strcmp(unit, "ko") == 0) {
-        size = sizeInBits / (1024); // Convert to kilobits
+        size = sizeInBits / (1024); 
     } else if (strcmp(unit, "mo") == 0) {
-        size = sizeInBits / (1024 * 1024); // Convert to megabits
+        size = sizeInBits / (1024 * 1024); 
     } else if (strcmp(unit, "go") == 0) {
-        size = sizeInBits / (1024 * 1024 * 1024); // Convert to gigabits
+        size = sizeInBits / (1024 * 1024 * 1024); 
     } else {
-        // If the unit is not recognized, return -1 or some error value
+       
         return -1.0f;
     }
 
