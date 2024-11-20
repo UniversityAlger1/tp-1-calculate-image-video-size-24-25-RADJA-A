@@ -10,7 +10,8 @@
 //   colored video size (based on the unit passed parametter)
 float video(int w, int h, int durationMovie, int durationCredits, int fps, char* unit) {
    // YOUR CODE HERE - BEGIN
-     float bitsPerPixel = 24
+      float bitsPerPixel = 24;
+
     float clrImage = w * h * bitsPerPixel * durationMovie * fps;
     float BImage = w * h * durationCredits * fps;
     float sizeInBits = clrImage + BImage; // Add to total size in bits
@@ -25,7 +26,9 @@ float video(int w, int h, int durationMovie, int durationCredits, int fps, char*
     } else if (strcmp(unit, "go") == 0) {
         size = sizeInBits / (1024 * 1024 * 1024); // Convert to gigabits
     } else {
+        // If the unit is not recognized, return -1 or some error value
         return -1.0f;
     }
+
     return size / 8;
 }
